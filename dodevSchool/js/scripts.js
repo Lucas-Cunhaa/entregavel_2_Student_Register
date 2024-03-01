@@ -259,13 +259,13 @@ filterBtn.addEventListener("change", (e) => {
   filterAlunos(filterValue);
 });
 
-// Local Storage
+ //Local Storage
 
-// const loadAlunos = () => {
+ const loadAlunos = () => {
 
-//   arrayAlunos.forEach((aluno) => {
-//     saveAluno(aluno.Nome, aluno.Idade, aluno.Nota, 0);
-//   });
-// };
+   arrayAlunos.forEach((aluno) => {
+     saveAluno(aluno.Nome, aluno.Idade, aluno.Nota, 0);
+   });
+ };
 
-// loadAlunos();
+loadAlunos();
