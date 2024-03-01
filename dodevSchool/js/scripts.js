@@ -1,34 +1,67 @@
-////////////////////////////////////////////////////////////////////////
-////////////////// FAÇA O SEU CÓDIGO AQUI \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-////////////////////////////////////////////////////////////////////////
 
 class Aluno {
-  
+  Nome
+  Idade
+  Nota
+  constructor(nome, idade, nota){
+    this.Nome = nome;
+    this.Idade = idade;
+    this.Nota = nota;
+  }
 }
 
 // Array
-
+let arrayAlunos = [];
 
 //funções projeto
 
-function CadastrarAluno() {
-  
+
+function CadastrarAluno(nome,idade,nota) {
+  let objetoAluno = new Aluno(nome, idade, nota);
+   // includes só compara  o objeto completo 
+  if(!arrayAlunos.some(x => x.Nome == nome)){
+     arrayAlunos.push(objetoAluno);
+  }
+   return objetoAluno;
 }
 
-function OrdenarPorNota() {
- 
+function OrdenarPorNota(arrayAlunos) {
+  arrayAlunos.sort((a, b) => b.Nota - a.Nota); // 
+  return arrayAlunos;
 }
 
-function OrdenarPorIdade() {
-
+function OrdenarPorIdade(arrayAlunos) {
+  arrayAlunos.sort((a, b) => b.Idade - a.Idade);
+  return arrayAlunos;
 }
 
-function OrdenarPorNome() {
+function OrdenarPorNome(arrayAlunos) {
+  arrayAlunos.sort((a,b) => {
+    const nomeA = a.Nome.toUpperCase();
+    const nomeB = b.Nome.toUpperCase();
 
+    if(nomeA < nomeB){
+      return -1;
+    }
+    if(nomeA > nomeB){
+      return 1;
+    }
+    return 0;
+    });
+   return arrayAlunos;
 }
 
-function CalcularMedia(){
+function CalcularMedia(arrayAlunos){
+ if (arrayAlunos.length === 0) {
+    return 0;
+ }
+ let somaNotas = 0;
 
+ arrayAlunos.forEach((aluno) => {
+      somaNotas += Number(aluno.Nota)
+ })
+const media = somaNotas / arrayAlunos.length;
+return media;
 }
 
 ////////////////////////////////////////////////////////////////////////
